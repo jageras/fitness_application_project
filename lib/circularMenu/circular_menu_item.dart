@@ -73,7 +73,7 @@ class CircularMenuItem extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-              primary: Colors.black,
+              primary: Colors.green,
               minimumSize: Size(100.0, 50.0)
           ),
           child: Text('$text', textAlign: textAlign,),

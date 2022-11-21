@@ -60,13 +60,13 @@ class menuPageState extends State<menuPage> {
                   curve: Curves.ease,
                   reverseCurve: Curves.ease,
 
-                  toggleButtonColor: Colors.black,
+                  toggleButtonColor: Colors.green,
                   items: [
 
                     CircularMenuItem(
                         text: 'Workout Tracker',
                         textAlign: TextAlign.center,
-                        color: Colors.black,
+                        color: Colors.green,
                         onPressed: () {
                           navToWorkoutTracker(context);
                         }),
@@ -74,7 +74,7 @@ class menuPageState extends State<menuPage> {
                     CircularMenuItem(
                         text: 'Food Tracker',
                         textAlign: TextAlign.center,
-                        color: Colors.black,
+                        color: Colors.green,
                         onPressed: () {
                           navToFoodTracker(context);
                         }),
@@ -82,7 +82,7 @@ class menuPageState extends State<menuPage> {
                     CircularMenuItem(
                         text: 'Your Data',
                         textAlign: TextAlign.center,
-                        color: Colors.black,
+                        color: Colors.green,
                         onPressed: () {
                           navToYourData(context);
                         }),
@@ -90,7 +90,7 @@ class menuPageState extends State<menuPage> {
                     CircularMenuItem(
                         text: 'Daily Plan',
                         textAlign: TextAlign.center,
-                        color: Colors.black,
+                        color: Colors.green,
                         onPressed: () {
                           navToDailyPlan(context);
                         }),
