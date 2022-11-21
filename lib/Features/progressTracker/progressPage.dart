@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:fitness_application_project/navigation.dart';
 
-class workoutTrackerPage extends StatefulWidget {
+class progressPage extends StatefulWidget {
   @override
-  workoutTrackerPageState createState() => workoutTrackerPageState();
+  progressPageState createState() => progressPageState();
 }
 
-class workoutTrackerPageState extends State<workoutTrackerPage> {
+class progressPageState extends State<progressPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+
       appBar: AppBar(
-        leading: IconButton(icon: const Icon(Icons.home), onPressed: (){navToMenuPage(context);}),
-        title: const Text('Workout Tracker'),
+        leading: IconButton(icon: const Icon(Icons.home), onPressed: (
+            ){navToMenuPage(context);}),
+        title: const Text('Workout Progress'),
         actions: [
-          IconButton(icon: const Icon(Icons.add), onPressed: () {}),
+          IconButton(icon: const Icon(Icons.import_export), onPressed: () {}),
         ],
         backgroundColor: Colors.green,
       ),
-
 
       bottomNavigationBar: BottomAppBar(
         child: Row(
@@ -27,8 +29,8 @@ class workoutTrackerPageState extends State<workoutTrackerPage> {
             TextButton.icon(
               icon: const Icon(Icons.fitness_center, size: 30.0), // Your icon here
               label: const Text('Manage Workouts'), // Your text here
-              onPressed: (){
-               null;
+              onPressed: () {
+                navToWorkoutTracker(context);
               },
             ),
             const Spacer(),
@@ -36,7 +38,7 @@ class workoutTrackerPageState extends State<workoutTrackerPage> {
               icon: const Icon(Icons.stacked_line_chart, size: 30.0), // Your icon here
               label: const Text('View Progress'), // Your text here
               onPressed: (){
-                navToProgress(context);
+                null;
               },
             ),
             // IconButton(icon: Icon(Icons.settings), onPressed: () {}),
