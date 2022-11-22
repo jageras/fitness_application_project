@@ -7,3 +7,10 @@ String lastName = "";
 
 String usernameCheck = "";
 String passwordCheck = "";
+
+String formattedDate = "";
+
+String restaurants = "";
+String foodItem = "";
+String foodItemCals = "";
+String currentMeal = "";

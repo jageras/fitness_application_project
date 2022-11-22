@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_application_project/navigation.dart';
 
@@ -20,6 +19,7 @@ class authenticationPageState extends State<authenticationPage> {
       final data =  await FirebaseFirestore.instance.collection("authentication").doc(globals.usernameCheck).get();
       if(globals.usernameCheck == data['username']) {
         if (globals.passwordCheck == data['password']){
+          globals.username = globals.usernameCheck;
           navToMenuPage(context);
         }
         else {

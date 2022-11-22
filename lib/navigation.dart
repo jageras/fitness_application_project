@@ -1,5 +1,7 @@
 import 'package:fitness_application_project/Authentication/createNewUser.dart';
 import 'package:fitness_application_project/Authentication/verifyInformation.dart';
+import 'package:fitness_application_project/Features/foodTracker/addFood.dart';
+import 'package:fitness_application_project/Features/foodTracker/foodTrackerWeekView.dart';
 import 'package:flutter/material.dart';
 
 import 'menuPage.dart';
@@ -47,4 +49,14 @@ void navToVerify (BuildContext context) {
 void navToCreateNewUser (BuildContext context) {
   Navigator.push(context,
       MaterialPageRoute(builder: (context) => createNewUserPage()));
+}
+
+void navToAddFood (BuildContext context) {
+  Navigator.push(context,
+      MaterialPageRoute(builder: (context) => addFoodPage()));
+}
+
+void navToFoodTrackerWeek (BuildContext context) {
+  Navigator.push(context,
+      MaterialPageRoute(builder: (context) => foodTrackerWeekPage()));
 }
