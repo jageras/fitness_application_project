@@ -25,8 +25,12 @@ class DialogBox extends StatelessWidget {
             TextField(
               controller: controller,
               decoration: const InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.greenAccent, width: 1.0),
+                  ),
                   border: OutlineInputBorder(),
                   hintText: "Add a new exercise",
+                  hintStyle: TextStyle(color: Colors.white)
               ),
             ),
 

@@ -7,10 +7,7 @@ class ExerciseDatabase {
   final _exerciseBox = Hive.box("exerciseBox");
 
   void createInitData() {
-    exerciseList = [
-      ["Bench Press", false],
-      ["Squat", false],
-    ];
+    exerciseList = [];
   }
 
   void loadData() {

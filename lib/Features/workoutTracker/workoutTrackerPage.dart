@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:fitness_application_project/Features/workoutTracker/data/database.dart';
+import 'package:fitness_application_project/Features/workoutTracker/utils/timerBox.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_application_project/navigation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -30,6 +33,7 @@ class workoutTrackerPageState extends State<workoutTrackerPage> {
 
   //text controller
   final _controller = TextEditingController();
+  final _timerController = TextEditingController();
 
   void checkBoxChanged(bool? value, int index) {
     setState(() {
@@ -60,6 +64,51 @@ class workoutTrackerPageState extends State<workoutTrackerPage> {
     );
   }
 
+  void createNewTimer() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return TimerBox(
+          controller: _timerController,
+          onSave: () => setTimer(int.parse(_timerController.text)),
+          onCancel: () => Navigator.of(context).pop(),
+        );
+      },
+    );
+  }
+
+  late Timer _timer;
+  late int _counter = 60;
+  late bool timerSet = false;
+  late bool timerFinished = true;
+
+  void setTimer(int seconds) {
+    _counter = seconds;
+    if (!timerFinished) {
+      timerSet = false;
+      timerFinished = true;
+      _timer.cancel();
+    }
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_counter > 0) {
+          _counter--;
+        } else {
+          timerSet = false;
+          timerFinished = true;
+          _timer.cancel();
+        }
+      });
+    });
+    timerSet = true;
+    _timerController.clear();
+    Navigator.of(context).pop();
+  }
+
+  bool isExerciseListEmpty() {
+    return db.exerciseList.isEmpty;
+  }
+
   void deleteExercise(int index) {
     setState(() {
       db.exerciseList.removeAt(index);
@@ -74,8 +123,12 @@ class workoutTrackerPageState extends State<workoutTrackerPage> {
         leading: IconButton(icon: const Icon(Icons.home), onPressed: () {
           navToMenuPage(context);
         }),
-        title: const Text('Workout Tracker'),
+        title: const Text('Exercise To-do List'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.access_alarm),
+            onPressed: createNewTimer,
+          ),
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: createNewExercise,
@@ -86,44 +139,46 @@ class workoutTrackerPageState extends State<workoutTrackerPage> {
 
       body: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
-        child: ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: db.exerciseList.length,
-          itemBuilder: (context, index) {
-            return ExerciseTile(
-              exerciseName: db.exerciseList[index][0],
-              exerciseCompleted: db.exerciseList[index][1],
-              onChanged: (value) => checkBoxChanged(value, index),
-              deleteFunction: (context) => deleteExercise(index),
-            );
-          }
+        child: Visibility(
+          child: Column(
+            children: <Widget> [
+              if (isExerciseListEmpty()) const Text(
+                "You have not logged any exercises yet. Please add a new exercise by clicking the Add-icon in the top right.",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 15),
+              ),
+              ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: db.exerciseList.length,
+                itemBuilder: (context, index) {
+                  return ExerciseTile(
+                    exerciseName: db.exerciseList[index][0],
+                    exerciseCompleted: db.exerciseList[index][1],
+                    onChanged: (value) => checkBoxChanged(value, index),
+                    deleteFunction: (context) => deleteExercise(index),
+                  );
+                }
+              ),
+            ]
+          ),
         ),
       ),
 
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container (
-              decoration: BoxDecoration(
+          children: <Widget>[
+            (_counter > 0)? const Text("") : const Text("Timer Done!", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green, fontSize: 30),),
+            if (timerSet) Text(
+              '$_counter',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
                 color: Colors.green,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: SizedBox(
-                height: 50,
-                width: 150,
-                child: TextButton(
-                  child: const Text(
-                    "See Full Week", style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () {
-                    null;
-                  },
-                ),
-              ),
+              )
             ),
-          ],
+          ]
         ),
       ),
     );

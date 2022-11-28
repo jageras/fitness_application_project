@@ -42,9 +42,10 @@ class ExerciseTile extends StatelessWidget {
               Checkbox(
                 value: exerciseCompleted,
                 onChanged: onChanged,
-                activeColor: Colors.black,
+                activeColor: Colors.white,
+                checkColor: Colors.green,
               ),
-              Text(exerciseName),
+              Text(exerciseName, style: TextStyle(fontSize: 20, color: Colors.white)),
             ],
           ),
         ),
