@@ -10,6 +10,13 @@ class createNewUserPage extends StatefulWidget {
 }
 
 class createNewUserPageState extends State<createNewUserPage> {
+  String dropDownValue = "Male";
+
+  @override
+  void initState() {
+    globals.gender = dropDownValue;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +29,7 @@ class createNewUserPageState extends State<createNewUserPage> {
 
           children: <Widget>[
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.20,
+              height: MediaQuery.of(context).size.height * 0.15,
               width: MediaQuery.of(context).size.width * 0.50,
               child: const FittedBox(
                 child: Text(
@@ -86,6 +93,32 @@ class createNewUserPageState extends State<createNewUserPage> {
 
               ),
             ),
+
+            DropdownButton<String>(
+
+                value: dropDownValue,
+                items: const [
+                  DropdownMenuItem(
+                      value: 'Male',
+                      child: Text("Male")
+                  ),
+
+                  DropdownMenuItem(
+                      value: 'Female',
+                      child: Text("Female")
+                  ),
+
+                ],
+                onChanged: (value) {
+                  setState(() {
+                    globals.gender = value!;
+                    dropDownValue = value;
+                  });
+                }
+
+            ),
+
+            const SizedBox(height: 5,),
 
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.10,

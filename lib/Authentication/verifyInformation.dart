@@ -53,6 +53,13 @@ class _verifyPageState extends State<verifyPage> {
                 ),
 
                 Text(
+                  globals.gender,
+                  style: const TextStyle(
+                      fontSize: 18
+                  ),
+                ),
+
+                Text(
                   globals.username,
                   style: const TextStyle(
                       fontSize: 18
@@ -80,7 +87,7 @@ class _verifyPageState extends State<verifyPage> {
                         {
                           try {
                             FirebaseFirestore.instance.collection('UserData').doc(globals.username).set({'username' : globals.username});
-                            FirebaseFirestore.instance.collection('authentication').doc(globals.username).set({ 'first name' : globals.firstName, 'last name' : globals.lastName, 'username' : globals.username, 'password' : globals.password});
+                            FirebaseFirestore.instance.collection('authentication').doc(globals.username).set({ 'first name' : globals.firstName, 'last name' : globals.lastName, 'gender' : globals.gender, 'username' : globals.username, 'password' : globals.password});
                             navBackToAuth(context);
                           } catch (e) {
                             setState(() {

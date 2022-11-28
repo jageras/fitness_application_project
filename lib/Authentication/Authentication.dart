@@ -53,11 +53,21 @@ class authenticationPageState extends State<authenticationPage> {
 
           children: <Widget>[
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.20,
-              width: MediaQuery.of(context).size.width * 0.40,
+              height: MediaQuery.of(context).size.height * 0.10,
+              width: MediaQuery.of(context).size.width * 0.75,
               child: const FittedBox(
                 child: Text(
-                  "Sign In"
+                  "myFitnessFriend"
+                ),
+              ),
+            ),
+
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.06,
+              width: MediaQuery.of(context).size.width * 0.25,
+              child: const FittedBox(
+                child: Text(
+                    "Sign In"
                 ),
               ),
             ),
