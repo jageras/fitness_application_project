@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'Features/progressTracker/progressPage.dart';
 import 'menuPage.dart';
 import 'package:fitness_application_project/Features/dailyPlan/dailyPlanPage.dart';
 import 'package:fitness_application_project/Features/foodTracker/foodTrackerPage.dart';
@@ -30,10 +29,5 @@ void navToWorkoutTracker (BuildContext context) {
 void navToYourData (BuildContext context) {
   Navigator.push(context,
       MaterialPageRoute(builder: (context) => yourDataPage())); //Navigate to temperature page
-}
-
-void navToProgress (BuildContext context) {
-  Navigator.push(context,
-      MaterialPageRoute(builder: (context) => progressPage())); //Navigate to temperature page)
 }
 
