@@ -38,12 +38,16 @@ class _verifyPageState extends State<verifyPage> {
                   ),
                 ),
 
+                const SizedBox(height: 10,),
+
                 Text(
                   globals.firstName,
                   style: const TextStyle(
                     fontSize: 18
                   ),
                 ),
+
+                const SizedBox(height: 10,),
 
                 Text(
                   globals.lastName,
@@ -52,6 +56,8 @@ class _verifyPageState extends State<verifyPage> {
                   ),
                 ),
 
+                const SizedBox(height: 10,),
+
                 Text(
                   globals.gender,
                   style: const TextStyle(
@@ -59,12 +65,16 @@ class _verifyPageState extends State<verifyPage> {
                   ),
                 ),
 
+                const SizedBox(height: 10,),
+
                 Text(
                   globals.username,
                   style: const TextStyle(
                       fontSize: 18
                   ),
                 ),
+
+                const SizedBox(height: 10,),
 
                 Text(
                   globals.password,
