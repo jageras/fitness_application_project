@@ -26,7 +26,7 @@ class ExerciseTile extends StatelessWidget {
             SlidableAction(
               onPressed: deleteFunction,
               icon: Icons.delete,
-              backgroundColor: Colors.blue,
+              backgroundColor: Colors.greenAccent,
               borderRadius: BorderRadius.circular(12),
             ),
           ],
