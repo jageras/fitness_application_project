@@ -80,7 +80,7 @@ class menuPageState extends State<menuPage> {
                         }),
 
                     CircularMenuItem(
-                        text: 'Your Data',
+                        text: 'BMI\nCalc',
                         textAlign: TextAlign.center,
                         color: Colors.green,
                         onPressed: () {
