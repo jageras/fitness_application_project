@@ -120,7 +120,7 @@ class workoutTrackerPageState extends State<workoutTrackerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(icon: const Icon(Icons.home), onPressed: () {
+        leading: IconButton(icon: const Icon(Icons.arrow_back_rounded), onPressed: () {
           navToMenuPage(context);
         }),
         title: const Text('Exercise To-do List'),
