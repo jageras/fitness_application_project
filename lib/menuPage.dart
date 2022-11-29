@@ -32,7 +32,7 @@ class menuPageState extends State<menuPage> {
               child: const FittedBox(
                 fit: BoxFit.fill,
                 child: Text(
-                  'My Fitness Friend',
+                  'myFitnessFriend',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: 'Kocka',
