@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "261806783247",
+    "project_id": "myfitnesspalproject-cebea",
+    "storage_bucket": "myfitnesspalproject-cebea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261806783247:android:a87b3555a2d6604f1d1c7a",
+        "android_client_info": {
+          "package_name": "com.example.fitness_application_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261806783247-0f51n396ctjgt1uostjpgrti282nt5o2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOczkwsZxC7g1m9m2yzqBCrF87D_-k-nA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261806783247-0f51n396ctjgt1uostjpgrti282nt5o2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
